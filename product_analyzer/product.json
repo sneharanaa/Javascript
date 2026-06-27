@@ -1,0 +1,18 @@
+{
+  "products": [
+    {"name":"Gaming Mouse","category":"Electronics","price":2500,"discount":12,"stock":40,"city":"Mumbai","isAvailable":true,"rating":4.3},
+    {"name":"Headphones","category":"Electronics","price":3500,"discount":15,"stock":50,"city":"Delhi","isAvailable":true,"rating":4.5},
+    {"name":"Bookshelf","category":"Furniture","price":5000,"discount":5,"stock":0,"city":"Mumbai","isAvailable":false,"rating":3.8},
+    {"name":"Office Chair","category":"Furniture","price":7000,"discount":8,"stock":20,"city":"Pune","isAvailable":true,"rating":4.1},
+    {"name":"Smart Watch","category":"Electronics","price":9000,"discount":5,"stock":0,"city":"Mumbai","isAvailable":false,"rating":4.4},
+    {"name":"Microwave Oven","category":"Home Appliances","price":12000,"discount":9,"stock":11,"city":"Delhi","isAvailable":true,"rating":4.2},
+    {"name":"Dining Table","category":"Furniture","price":15000,"discount":7,"stock":10,"city":"Surat","isAvailable":true,"rating":4.0},
+    {"name":"Water Purifier","category":"Home Appliances","price":16000,"discount":11,"stock":13,"city":"Mumbai","isAvailable":true,"rating":4.6},
+    {"name":"Tablet","category":"Electronics","price":23000,"discount":6,"stock":14,"city":"Mumbai","isAvailable":true,"rating":4.3},
+    {"name":"Smartphone","category":"Electronics","price":32000,"discount":5,"stock":25,"city":"Delhi","isAvailable":true,"rating":4.7},
+    {"name":"Washing Machine","category":"Home Appliances","price":38000,"discount":10,"stock":6,"city":"Mumbai","isAvailable":true,"rating":4.2},
+    {"name":"Refrigerator","category":"Home Appliances","price":45000,"discount":12,"stock":8,"city":"Pune","isAvailable":true,"rating":4.5},
+    {"name":"LED TV","category":"Electronics","price":48000,"discount":14,"stock":15,"city":"Mumbai","isAvailable":true,"rating":4.6},
+    {"name":"Air Conditioner","category":"Home Appliances","price":55000,"discount":18,"stock":20,"city":"Delhi","isAvailable":true,"rating":4.8}
+  ]
+}

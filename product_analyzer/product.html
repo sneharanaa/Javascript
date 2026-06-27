@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/angular-1.8.2/angular.min.js"></script>
+    <style>
+        .green {
+            background-color: lightgreen;
+        }
+        .red{
+            background-color: lightcoral;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body ng-app="myapp" ng-controller="mycontroller" class="bg-light">
+    <div>
+        <h2>Product Analyzer</h2>
+        <div class="">
+            <h3>Dashboard Statistics</h3>
+            <p>Total Available Products : {{products.length}}</p>
+            <p>Most Expensive Product : {{mostexp.name}}({{finalprice(mostexp)}})</p>
+            <p>Average Product Price : {{avgprice | number : 2}}</p>
+            <p>Electronics Products : {{electronics}}</p>
+            <p>Products Supplied From Mumbai : {{mumbai}}</p>
+        </div>
+        <div>
+            <label for="">Search Products :</label>
+            <input type="text" ng-model="search">
+
+            <label for="">Category : </label>
+            <select ng-model="selectcategorey">
+                <option value="">All</option>
+                <option ng-repeat="c in categories">{{c}}</option>
+            </select>
+            Sort By :
+            <button ng-click="sorttype='price'">Price</button>
+            <button ng-click="sorttype='rating'">Rating</button>
+        </div>
+        <table style="width: 100%;" class="table-bordered table-striped table-hover text-center">
+            <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Discount%</th>
+                <th>Final Price</th>
+                <th>Stock</th>
+                <th>Availability</th>
+            </tr>
+            <!--{'green' : finalprice(p)>40000 && p.stock > 10 , 'red':p.stock<10}-->
+            <tr ng-repeat="p in products | filter : search | filter : selectcategorey | orderBy : sorttype" ng-class="p.stock < 10 ? 'red' : (finalprice(p)>40000 ? 'green' : '')">
+                <td>{{p.name}}</td>
+                <td>{{p.category}}</td>
+                <td>{{p.price}}</td>
+                <td>{{p.discount}}</td>
+                <td>{{finalprice(p)}}</td>
+                <td>{{p.stock}}</td>
+                <td>{{p.stock > 0 ? 'Available' : 'Not Available'}}</td>
+            </tr>
+        </table>
+        <script src="script.js"></script>
+    </div>
+</body>
+</html>
