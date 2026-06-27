@@ -1,0 +1,25 @@
+th {
+    padding: 50px;
+}
+
+td{
+    padding: 5px;
+}
+
+table{
+    width: 30%;
+}
+
+.bodypath{
+    display: flex;
+    gap: 5%;
+}
+
+.cartdiv{
+    box-shadow: 5px 5px 5px 5px gray;
+    padding: 50px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+}
+

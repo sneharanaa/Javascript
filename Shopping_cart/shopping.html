@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shopping cart</title>
+    <script src="/angular-1.8.2/angular.min.js"></script>
+    <link rel="stylesheet" href="shopping.css">
+</head>
+<body ng-app="app" ng-controller="mycontroller" style="align-items: center; text-align: center; justify-items: center;">
+    <h2>Shopping cart</h2>
+    <div class="bodypath">
+        <div class="items">
+        <table  border="1">
+            <tr>
+                <th>ID</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Image</th>
+                <th></th>
+            </tr>
+            <tr ng-repeat="mydata in cartdata">
+                <td>{{mydata.id}}</td>
+                <td>{{mydata.product}}</td>
+                <td>{{mydata.price}}</td>
+                <td style="display: flex;">
+                    <button ng-click="inc(mydata)">+</button>
+                    <input ng-model="mydata.quantity" style="width: 50px;" type="number" name="qty" id="">
+                    <button ng-click="dec(mydata)">-</button>
+                </td>
+                <td>
+                    <img height="100px" width="100px" src="{{mydata.image}}" alt="">
+                </td>
+                <td>
+                    <button ng-click="addtocart(mydata)" style="background-color: lightgreen">Add to Cart</button>
+                </td>
+            </tr>
+        </table>
+        </div>
+
+        <div class="cartdiv">
+            <div>
+                <h3>My cart</h3>
+            <div>
+                <table border="1">
+                    <tr ng-repeat="c in cart">
+                        <td>{{c.product}}</td>
+                        <td>{{c.price}}</td>
+                        <td style="display: flex;">
+                            <button ng-click="inc(mydata)">+</button>
+                            <input ng-model="mydata.quantity" style="width: 50px;" type="text" name="" id="">
+                            <button ng-click="dec(mydata)">-</button>
+                        </td>
+                        <td>
+                            <img  height="100px" width="100px" src="{{c.image}}" alt="">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3>Total Amount : {{total}}</h3>
+            </div>
+            
+        </div>
+    </div>
+
+    <script>
+        var appdata = angular.module("app" , []);
+        appdata.controller("mycontroller" , function($scope , $http){
+            $http.get("mydata.json")
+            .then (function(res){
+                $scope.cartdata = res.data;
+            } , function(error){
+                console.log("error in loading data");
+            });
+
+            $scope.inc = function(i){
+                i.quantity++;
+                
+                for(var i=0 ; i<$scope.cart.length ; i++){
+                    $scope.total += $scope.cart[i].price; 
+                }
+            };
+
+            $scope.dec = function(i){
+                if(i.quantity > 0){
+                    i.quantity--;
+                    
+                    for(var i=0 ; i<$scope.cart.length ; i++){
+                        $scope.total += $scope.cart[i].price; 
+                    }
+                }
+            }
+
+            $scope.cart = [];
+            $scope.total = 0;
+
+            $scope.addtocart = function(i){
+                $scope.cart.push(i);
+                $scope.total = 0;
+                for(var i=0 ; i<$scope.cart.length ; i++){
+                    $scope.total += $scope.cart[i].price; 
+                }
+            }
+
+        });
+    </script>
+</body>
+</html>

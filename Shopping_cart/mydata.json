@@ -1,0 +1,27 @@
+
+[
+    {
+      "id": 1,
+      "product": "Laptop",
+      "price": 55000,
+      "image": "https://p.kindpng.com/picc/s/27-274241_laptop-png-transparent-png.png"
+    },
+    {
+      "id": 2,
+      "product": "Mobile Phone",
+      "price": 20000,
+      "image": "https://p.kindpng.com/picc/s/111-1117152_mobile-png-transparent-png.png"
+    },
+    {
+      "id": 3,
+      "product": "Headphones",
+      "price": 1500,
+      "image": "https://p.kindpng.com/picc/s/146-1463470_sennheiser-hd8-dj-headphones-2-l-transparent-background.png"
+    },
+    {
+      "id": 4,
+      "product": "Smart Watch",
+      "price": 3000,
+      "image": "https://p.kindpng.com/picc/s/111-1117152_mobile-png-transparent-png.png"
+    }
+]
