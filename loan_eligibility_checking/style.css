@@ -1,0 +1,21 @@
+body {
+    background-color: aqua;
+}
+.card {
+    border-radius: 10px;
+}
+
+.red{
+    background-color: lightcoral;
+    border-left: 5px solid red;
+}
+
+.yellow{
+    background-color: lightyellow;
+    border-left: 5px solid yellow;
+}
+
+.green{
+    background-color: lightgreen;
+    border-left: 5px solid green;
+}

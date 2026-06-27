@@ -1,0 +1,28 @@
+{
+  "loanProducts": [
+    {
+      "loanName": "Personal Loan",
+      "type": "Unsecured",
+      "interestRate": 11.5,
+      "minSalary": 25000,
+      "maxAge": 58,
+      "terms": [12, 24, 36, 48]
+    },
+    {
+      "loanName": "Car Loan",
+      "type": "Secured",
+      "interestRate": 9.0,
+      "minSalary": 20000,
+      "maxAge": 60,
+      "terms": [12, 24, 36, 60]
+    },
+    {
+      "loanName": "Home Loan",
+      "type": "Secured",
+      "interestRate": 7.5,
+      "minSalary": 30000,
+      "maxAge": 55,
+      "terms": [60, 120, 180, 240]
+    }
+  ]
+}

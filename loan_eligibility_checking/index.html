@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Analyzer</title>
+    <script src="/angular-1.8.2/angular.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body ng-app="myapp" ng-controller="mycontroller">
+    <div class="container mt-4">
+        <h2 class="text-center mb-4">Loan Eligibility & EMI Calculator</h2>
+
+        <div class="card p-3 mb-4">
+            <h4>User Details</h4>
+            <form name="loanform" ng-submit="check()" novalidate>
+                <input type="text" class="form-control mb-2" placeholder="Enter your Name!" ng-model="user.name"><br><br>
+                <input type="number" class="form-control mb-2" placeholder="Enter your Age!" ng-model="user.age" min="18" max="60"><br><br>
+                <input type="number" class="form-control mb-2" placeholder="Enter your Salary" ng-model="user.salary" min="20000"><br><br>
+                <input type="number" class="form-control mb-2" placeholder="Enter your credit Score!" ng-model="user.creditscore" min="300" max="900"><br><br>
+                <button type="submit" class="btn btn-primary" ng-disabled="loanform.$invalid">Check Eligibility</button>
+                <p class="text-danger mt-2" ng-if="errormsg">{{errormsg}}</p>
+            </form>
+        </div>
+
+        <div class="card p-3 mb-4" ng-if="eligibleloan.length > 0">
+            <h4>Eligibile Loans</h4>
+            <div class="card p-3 mb-3" ng-repeat="loan in eligibleloan" ng-class="getcreditclass()">
+                <h5>{{loan.loanName}}</h5>
+                <p>type : {{loan.type}}</p>
+                <p>Interest : {{loan.interestRate}}%</p>
+
+                <input type="number" class="form-control mb-2" placeholder="enter loan amount" ng-model="loan.amount">
+                <select class="form-control mb-2" ng-model="loan.selectedTerm" ng-options="t for t in loan.terms"></select>
+                <button class="btn btn-success" ng-click="cal(loan)" ng-disabled="!loan.amount || !loan.selectedTerm"> Calculate EMI</button>
+
+                <div class="mt-3" ng-if="loan.emi">
+                    <p><b>EMI :</b>${{loan.emi | number : 0}}</p>
+                    <p><b>TOTAL PAYMENT : </b>${{loan.totalpayment | number : 0}}</p>
+                    <p><b>TOTAL INTEREST : </b>${{loan.totalinterest | number : 0}}</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="alert alert-danger" ng-if="submitted && eligibleloan.length == 0">
+            No Loan Availabl3e for this.
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
