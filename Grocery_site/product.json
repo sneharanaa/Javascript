@@ -1,0 +1,7 @@
+{
+  "products": [
+    {"id":1,"name":"Apple","category":"Fruits","price":200,"stockAvailable":50},
+    {"id":2,"name":"Milk","category":"Dairy","price":60,"stockAvailable":100},
+    {"id":3,"name":"Almonds","category":"Dry Fruits","price":850,"stockAvailable":30}
+  ]
+}
